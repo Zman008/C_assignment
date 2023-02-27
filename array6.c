@@ -2,27 +2,34 @@
 
 int exchange(int arrayA[], int arrayB[], int n, int m)
 {
-    int temp;
+    int temp, x;
 
-    for (int i = 0; i < n; i++)
+    if (n > m)
     {
-        printf("A:%d B:%d\n", arrayA[i], arrayB[i]);
+        x = n;
+    }
+    else
+    {
+        x = m;
+    }
+
+    for (int i = 0; i < x; i++)
+    {
         temp = arrayA[i];
         arrayA[i] = arrayB[i];
         arrayB[i] = temp;
-        printf("a:%d b:%d\n", arrayA[i], arrayB[i]);
     }
 
     printf("Array A: ");
-    
-    for (int i = 0; i < m; i++) 
+
+    for (int i = 0; i < m; i++)
     {
         printf("%d ", arrayA[i]);
     }
 
     printf("\nArray B: ");
 
-    for (int i = 0; i < n; i++) 
+    for (int i = 0; i < n; i++)
     {
         printf("%d ", arrayB[i]);
     }
@@ -34,7 +41,7 @@ int main()
 {
     int n, m;
     scanf("%d", &n);
-    int arrayA[n];
+    int arrayA[999];
 
     for (int i = 0; i < n; i++)
     {
@@ -42,20 +49,14 @@ int main()
     }
 
     scanf("%d", &m);
-    int arrayB[m];
+    int arrayB[999];
 
     for (int i = 0; i < m; i++)
     {
         scanf("%d", &arrayB[i]);
     }
 
-    if (n > m) 
-    {
-        exchange(arrayA, arrayB, n, m);
-    } else 
-    {
-        exchange(arrayA, arrayB, m, n);
-    }
+    exchange(arrayA, arrayB, n, m);
 
     return 0;
 }
